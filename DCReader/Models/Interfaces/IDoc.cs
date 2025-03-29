@@ -1,7 +1,7 @@
 namespace DCReader.Models;
 
-
 public interface IDoc{
-  void Read();
-  void Search();
+  const string Error="File Not Found";
+  public string Read(IFormFile file);
+  public void Search();
 }

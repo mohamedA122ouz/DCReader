@@ -9,5 +9,8 @@ public class Document{
     Doc=doc;
 
   }
+  public string read(IFormFile file){
+    return Doc.Read(file);
+  }
 }
 

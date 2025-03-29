@@ -19,7 +19,13 @@ public class HomeController : Controller
         return View();
         
     }
-
+    [HttpPost]
+    public IActionResult Index(IFormFile file)
+    {
+        
+        return View();
+        
+    }
     public IActionResult Privacy()
     {
         return View();
