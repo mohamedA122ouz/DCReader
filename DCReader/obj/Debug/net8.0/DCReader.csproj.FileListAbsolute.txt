@@ -32,3 +32,34 @@
 /home/mrrobot/DCReader/DCReader/DCReader/obj/Debug/net8.0/DCReader.pdb
 /home/mrrobot/DCReader/DCReader/DCReader/obj/Debug/net8.0/DCReader.genruntimeconfig.cache
 /home/mrrobot/DCReader/DCReader/DCReader/obj/Debug/net8.0/ref/DCReader.dll
+e:\git repo\DCReader\DCReader\bin\Debug\net8.0\appsettings.Development.json
+e:\git repo\DCReader\DCReader\bin\Debug\net8.0\appsettings.json
+e:\git repo\DCReader\DCReader\bin\Debug\net8.0\DCReader.staticwebassets.runtime.json
+e:\git repo\DCReader\DCReader\bin\Debug\net8.0\DCReader.exe
+e:\git repo\DCReader\DCReader\bin\Debug\net8.0\DCReader.deps.json
+e:\git repo\DCReader\DCReader\bin\Debug\net8.0\DCReader.runtimeconfig.json
+e:\git repo\DCReader\DCReader\bin\Debug\net8.0\DCReader.dll
+e:\git repo\DCReader\DCReader\bin\Debug\net8.0\DCReader.pdb
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.GeneratedMSBuildEditorConfig.editorconfig
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.AssemblyInfoInputs.cache
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.AssemblyInfo.cs
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.csproj.CoreCompileInputs.cache
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.MvcApplicationPartsAssemblyInfo.cache
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.RazorAssemblyInfo.cache
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.RazorAssemblyInfo.cs
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.sourcelink.json
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\staticwebassets.build.json
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\staticwebassets.development.json
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\staticwebassets\msbuild.DCReader.Microsoft.AspNetCore.StaticWebAssets.props
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\staticwebassets\msbuild.build.DCReader.props
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.DCReader.props
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.DCReader.props
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\staticwebassets.pack.json
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\scopedcss\bundle\DCReader.styles.css
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\scopedcss\projectbundle\DCReader.bundle.scp.css
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.dll
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\refint\DCReader.dll
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.pdb
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\DCReader.genruntimeconfig.cache
+e:\git repo\DCReader\DCReader\obj\Debug\net8.0\ref\DCReader.dll

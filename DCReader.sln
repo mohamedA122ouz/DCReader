@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DCReader", "DCReader\DCReader.csproj", "{6D56FC56-3337-4352-8844-CCD67A8EA627}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDCReader", "TestDCReader\TestDCReader.csproj", "{558E4CC8-2A57-4D37-82EA-B6B310782941}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{6D56FC56-3337-4352-8844-CCD67A8EA627}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D56FC56-3337-4352-8844-CCD67A8EA627}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D56FC56-3337-4352-8844-CCD67A8EA627}.Release|Any CPU.Build.0 = Release|Any CPU
+		{558E4CC8-2A57-4D37-82EA-B6B310782941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{558E4CC8-2A57-4D37-82EA-B6B310782941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{558E4CC8-2A57-4D37-82EA-B6B310782941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{558E4CC8-2A57-4D37-82EA-B6B310782941}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

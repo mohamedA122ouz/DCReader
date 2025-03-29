@@ -1,9 +1,9 @@
 namespace DCReader.Models;
-struct Node{
+public struct Node{
     public char Value;
-    public int[] columnIndex;
-    public int[] RowIndex;
-    public bool[] IsFullWord;
+    public List<int> columnIndex;
+    public List<int> RowIndex;
+    public List<bool> IsFullWord;
     public Dictionary<char,Node> next;
 }
-record Position {public int Column;public int Row;}
+public record Position {public int Column {get;set;} public int Row {get;set;}}

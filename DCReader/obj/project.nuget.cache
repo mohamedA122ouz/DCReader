@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J8LSmzWgKbc=",
+  "dgSpecHash": "vTnIcQ3OIQU=",
   "success": true,
-  "projectFilePath": "/home/mrrobot/DCReader/DCReader/DCReader/DCReader.csproj",
-  "expectedPackageFiles": [
-    "/home/mrrobot/.nuget/packages/microsoft.netcore.app.host.linux-x64/8.0.13/microsoft.netcore.app.host.linux-x64.8.0.13.nupkg.sha512"
-  ],
+  "projectFilePath": "e:\\git repo\\DCReader\\DCReader\\DCReader.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

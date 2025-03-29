@@ -1,26 +1,31 @@
 {
   "format": 1,
   "restore": {
-    "/home/mrrobot/DCReader/DCReader/DCReader/DCReader.csproj": {}
+    "e:\\git repo\\DCReader\\DCReader\\DCReader.csproj": {}
   },
   "projects": {
-    "/home/mrrobot/DCReader/DCReader/DCReader/DCReader.csproj": {
+    "e:\\git repo\\DCReader\\DCReader\\DCReader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mrrobot/DCReader/DCReader/DCReader/DCReader.csproj",
+        "projectUniqueName": "e:\\git repo\\DCReader\\DCReader\\DCReader.csproj",
         "projectName": "DCReader",
-        "projectPath": "/home/mrrobot/DCReader/DCReader/DCReader/DCReader.csproj",
-        "packagesPath": "/home/mrrobot/.nuget/packages/",
-        "outputPath": "/home/mrrobot/DCReader/DCReader/DCReader/obj/",
+        "projectPath": "e:\\git repo\\DCReader\\DCReader\\DCReader.csproj",
+        "packagesPath": "C:\\Users\\Prime11\\.nuget\\packages\\",
+        "outputPath": "e:\\git repo\\DCReader\\DCReader\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/mrrobot/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Prime11\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/lib64/dotnet/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -38,8 +43,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net8.0": {
@@ -55,12 +59,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.NETCore.App.Host.linux-x64",
-              "version": "[8.0.13, 8.0.13]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -69,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib64/dotnet/sdk/9.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.406/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

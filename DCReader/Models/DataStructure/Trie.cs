@@ -1,42 +1,45 @@
 namespace DCReader.Models;
-using DCReader.Models;
 
-class Trie
+public class Trie
 {
     private char startCharValue = '&';
     private Node startNode { get; set; }
     private Node lastNode { get; set; }
-    private bool IsStarted { get; set; } = false;
+    private Node IntiateNode(char charValue){
+        Node tempNode = new();
+        tempNode.Value = charValue;
+        tempNode.next = new();
+        tempNode.RowIndex = new();
+        tempNode.columnIndex = new();
+        tempNode.IsFullWord = new();
+        return tempNode;
+    }
     public Trie()
     {
-        Node tempNode = new();
-        tempNode.Value = startCharValue;
-        startNode = tempNode;
+        startNode = IntiateNode(startCharValue);
         lastNode = startNode;
     }
-    public Node insert(char i, Position charPosition, Node needed)
+    public Node insert(char i, Position charPosition)
     {
         if (i == ' ')
         {
-            if (IsStarted)
-            {
-                lastNode.IsFullWord[lastNode.IsFullWord.Length - 1] = true;
-                lastNode = startNode;
-            }
+            if (lastNode.IsFullWord.Count != 0)
+                lastNode.IsFullWord[lastNode.IsFullWord.Count - 1] = true;
+
+            lastNode = startNode;
             return new();
         }
-        Node current = needed.next.GetValueOrDefault(i);
+        Node current = lastNode.next.GetValueOrDefault(i);
         if (current.Value == '\0')
-            current.Value = i;
+        {
+            current = IntiateNode(i);
+        }
 
-        current.columnIndex.Append(charPosition.Column);
-        current.RowIndex.Append(charPosition.Row);
-        lastNode.IsFullWord.Append(false);
-        startNode.next.Add(i, current);
+        current.columnIndex.Add(charPosition.Column);
+        current.RowIndex.Add(charPosition.Row);
+        current.IsFullWord.Add(false);
+        lastNode.next.TryAdd(i, current);
         lastNode = current;
-        if (!IsStarted)
-            IsStarted = true;
         return current;
     }
-
 }
