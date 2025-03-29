@@ -3,8 +3,8 @@ using DCReader.Models;
 public class ImageDoc:IDoc{
 
 
-  public void Read(){
-
+  public string Read(IFormFile file){
+    return "";
   }
 
   public void Search(){

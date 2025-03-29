@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "e:\\git repo\\DCReader\\DCReader\\DCReader.csproj": {}
+    "E:\\git repo\\DCReader\\DCReader\\DCReader.csproj": {}
   },
   "projects": {
-    "e:\\git repo\\DCReader\\DCReader\\DCReader.csproj": {
+    "E:\\git repo\\DCReader\\DCReader\\DCReader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "e:\\git repo\\DCReader\\DCReader\\DCReader.csproj",
+        "projectUniqueName": "E:\\git repo\\DCReader\\DCReader\\DCReader.csproj",
         "projectName": "DCReader",
-        "projectPath": "e:\\git repo\\DCReader\\DCReader\\DCReader.csproj",
+        "projectPath": "E:\\git repo\\DCReader\\DCReader\\DCReader.csproj",
         "packagesPath": "C:\\Users\\Prime11\\.nuget\\packages\\",
-        "outputPath": "e:\\git repo\\DCReader\\DCReader\\obj\\",
+        "outputPath": "E:\\git repo\\DCReader\\DCReader\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -48,6 +48,20 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.CognitiveServices.Speech": {
+              "target": "Package",
+              "version": "[1.43.0, )"
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "Vosk": {
+              "target": "Package",
+              "version": "[0.3.38, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

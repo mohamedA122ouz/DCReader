@@ -2,6 +2,6 @@ namespace DCReader.Models;
 
 
 public class VedioDoc:IDoc{
-  public void Read(){}
+  public string Read(IFormFile file){return "";}
   public void Search(){}
 }

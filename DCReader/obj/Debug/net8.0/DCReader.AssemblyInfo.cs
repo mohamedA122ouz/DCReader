@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DCReader")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2d166099bc70a06b9a32838a71cf4fb994869ac7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+794fb4433a72e26c71847b8ae5956318a7ba0d48")]
 [assembly: System.Reflection.AssemblyProductAttribute("DCReader")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DCReader")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
