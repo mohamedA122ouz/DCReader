@@ -51,23 +51,7 @@ public class ImageDoc : IDoc
             }
         }
         output = output.Trim();
-
-        int Row = 0;
-        int Column = 0;
-        int strCounter = 0;
-        while (strCounter < output.Length)
-        {
-            char currentChar = output[strCounter++];
-            if (currentChar == '\n')
-            {
-                Column = 0;
-                Row++;
-                continue;
-            }
-            if (currentChar == '\r' || currentChar == '\t')
-                continue;
-            trie.insert(currentChar, new() { Row = Row, Column = Column++ });
-        }
+        trie.insert(output);
     }
 }
 

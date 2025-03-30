@@ -20,6 +20,24 @@ public class Trie
         startNode = IntiateNode(startCharValue);
         lastNode = startNode;
     }
+    public void insert(string wholeString){
+        int Row = 0;
+        int Column = 0;
+        int strCounter = 0;
+        while (strCounter < wholeString.Length)
+        {
+            char currentChar = wholeString[strCounter++];
+            if (currentChar == '\n')
+            {
+                Column = 0;
+                Row++;
+                continue;
+            }
+            if (currentChar == '\r' || currentChar == '\t')
+                continue;
+            insert(currentChar, new() { Row = Row, Column = Column++ });
+        }
+    }
     public Node insert(char i, Position charPosition)
     {
         if (i == ' ')
