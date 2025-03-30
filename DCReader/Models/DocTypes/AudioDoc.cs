@@ -43,6 +43,7 @@ public class AudioDoc : IDoc
     //transcript text should be given to the Trie data structure 
     //by creating an object of Trie in this class and pass it the 
     //text character by character using insert method
+    //take the while loop that is in the imageDoc
   }
 
     public List<Position> Search(string key)
