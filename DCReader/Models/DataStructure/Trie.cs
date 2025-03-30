@@ -2,7 +2,7 @@ namespace DCReader.Models;
 
 public class Trie
 {
-    private char startCharValue = '&';
+    private char startCharValue = '␀';
     private Node startNode { get; set; }
     private Node lastNode { get; set; }
     private Node IntiateNode(char charValue)
