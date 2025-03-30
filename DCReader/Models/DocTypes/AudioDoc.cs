@@ -9,16 +9,17 @@ using Microsoft.AspNetCore.Http;
 using Vosk;
 using NAudio.Wave;
 using System.Diagnostics;
+using System.Collections.Generic;
 
 public class AudioDoc : IDoc
 {
   private static readonly string modelPath = "vosk-model-small-en-us";
 
-  public string Read(IFormFile audioFile)
+  public void Read(IFormFile audioFile)
   {
     if (audioFile == null || audioFile.Length == 0)
     {
-      return "File Not Found";
+      Console.WriteLine("File Not Found");
     }
 
     // Save uploaded file to a temp location
@@ -38,13 +39,27 @@ public class AudioDoc : IDoc
     File.Delete(tempFilePath);
     if (wavFilePath != tempFilePath) File.Delete(wavFilePath);
 
-    return transcript;
-
+    //transcript;
+    //transcript text should be given to the Trie data structure 
+    //by creating an object of Trie in this class and pass it the 
+    //text character by character using insert method
   }
 
+    public List<Position> Search(string key)
+    {
+      //predefind within the Trie datastructure 
+      //only pass the key to it and return the result then done
+        throw new NotImplementedException();
+    }
 
+    public Dictionary<string, List<Position>> SearchList(List<string> keys)
+    {
+      //predefind within the Trie datastructure 
+      //only pass the keys to it and return the result then done
+        throw new NotImplementedException();
+    }
 
-  private string ConvertAudioToText(string filePath, Model model)
+    private string ConvertAudioToText(string filePath, Model model)
   {
     using var waveStream = new WaveFileReader(filePath);
     using var recognizer = new VoskRecognizer(model, waveStream.WaveFormat.SampleRate);
@@ -81,12 +96,6 @@ public class AudioDoc : IDoc
         }
 
         return outputFilePath;
-  }
-
-  public void Search()
-  {
-
-
   }
 }
 
