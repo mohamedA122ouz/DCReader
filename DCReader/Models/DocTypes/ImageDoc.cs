@@ -6,8 +6,8 @@ using Tesseract;
 
 public class ImageDoc : IDoc
 {
-    private Trie trie { get; set; } = new();
-
+  private Trie trie=new Trie();
+  
     public List<Position> Search(string key)
     {
         return trie.search(key);
@@ -16,6 +16,11 @@ public class ImageDoc : IDoc
     public Dictionary<string, List<Position>> SearchList(List<string> keys)
     {
         return trie.searchList(keys);
+    }
+
+    public void SetTrie(Trie trie)
+    {
+        this.trie=trie;
     }
 
     void IDoc.Read(IFormFile file)

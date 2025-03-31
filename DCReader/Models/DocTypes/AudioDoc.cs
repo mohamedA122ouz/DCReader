@@ -1,13 +1,10 @@
 namespace DCReader.Models;
 
-using DCReader.Models;
 using NAudio.Wave;
 using System;
 using System.IO;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Vosk;
-using NAudio.Wave;
 using System.Diagnostics;
 using System.Collections.Generic;
 
@@ -15,6 +12,12 @@ public class AudioDoc : IDoc
 {
   private static readonly string modelPath = "vosk-model-small-en-us";
 
+  private Trie trie=new Trie();
+
+public void SetTrie(Trie trie)
+    {
+        this.trie=trie;
+    }
   public void Read(IFormFile audioFile)
   {
     if (audioFile == null || audioFile.Length == 0)
@@ -39,28 +42,23 @@ public class AudioDoc : IDoc
     File.Delete(tempFilePath);
     if (wavFilePath != tempFilePath) File.Delete(wavFilePath);
 
-    //transcript;
-    //transcript text should be given to the Trie data structure 
-    //by creating an object of Trie in this class and pass it the 
-    //text character by character using insert method
-    //take the while loop that is in the imageDoc
+    trie.insert(transcript);
+    Console.WriteLine(transcript);
   }
 
-    public List<Position> Search(string key)
-    {
-      //predefind within the Trie datastructure 
-      //only pass the key to it and return the result then done
-        throw new NotImplementedException();
-    }
+  public List<Position> Search(string key)
+  {
+    return trie.search(key);  
+  }
 
-    public Dictionary<string, List<Position>> SearchList(List<string> keys)
-    {
-      //predefind within the Trie datastructure 
-      //only pass the keys to it and return the result then done
-        throw new NotImplementedException();
-    }
+  public Dictionary<string, List<Position>> SearchList(List<string> keys)
+  {
+    //predefind within the Trie datastructure 
+    //only pass the keys to it and return the result then done
+    return trie.searchList(keys);
+  }
 
-    private string ConvertAudioToText(string filePath, Model model)
+  private string ConvertAudioToText(string filePath, Model model)
   {
     using var waveStream = new WaveFileReader(filePath);
     using var recognizer = new VoskRecognizer(model, waveStream.WaveFormat.SampleRate);
@@ -80,23 +78,23 @@ public class AudioDoc : IDoc
   {
     string outputFilePath = Path.ChangeExtension(inputFilePath, ".wav");
 
-        ProcessStartInfo processStartInfo = new ProcessStartInfo
-        {
-            FileName = "ffmpeg",
-            Arguments = $"-i \"{inputFilePath}\" -acodec pcm_s16le -ar 16000 -ac 1 \"{outputFilePath}\"",
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        };
+    ProcessStartInfo processStartInfo = new ProcessStartInfo
+    {
+      FileName = "ffmpeg",
+      Arguments = $"-i \"{inputFilePath}\" -acodec pcm_s16le -ar 16000 -ac 1 \"{outputFilePath}\"",
+      RedirectStandardOutput = true,
+      RedirectStandardError = true,
+      UseShellExecute = false,
+      CreateNoWindow = true
+    };
 
-        using (Process process = new Process { StartInfo = processStartInfo })
-        {
-            process.Start();
-            process.WaitForExit();
-        }
+    using (Process process = new Process { StartInfo = processStartInfo })
+    {
+      process.Start();
+      process.WaitForExit();
+    }
 
-        return outputFilePath;
+    return outputFilePath;
   }
 }
 

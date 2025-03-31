@@ -5,7 +5,12 @@ namespace DCReader.Models;
 
 public class TextDoc : IDoc
 {
-  private Trie trie { get; set; } = new Trie();
+  private Trie trie=new Trie();
+ 
+  public void SetTrie(Trie trie)
+    {
+        this.trie=trie;
+    }
   public void Read(IFormFile file)
   {
     Stream stream = file.OpenReadStream();
