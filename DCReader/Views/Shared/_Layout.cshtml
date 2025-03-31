@@ -1,5 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,8 +8,9 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/DCReader.styles.css" asp-append-version="true" />
 </head>
+
 <body>
-    
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -17,12 +19,29 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2025 - DCReader - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - DCReader the image recognition and audio and video is based on ai so it is 99% accurate
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        function uploadFile() {
+            const file = document.querySelector("[type='file']");
+            file.click();
+        }
+        function updateFileName() {
+            console.log("I am here");
+            const fileInput = document.getElementById('file');
+            const fileNameDisplay = document.getElementById('file-name');
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = fileInput.files[0].name;
+            } else {
+                fileNameDisplay.textContent = "";
+            }
+        }
+    </script>
 </body>
+
 </html>

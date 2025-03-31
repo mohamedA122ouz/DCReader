@@ -32,7 +32,7 @@ public class ImageDoc : IDoc
         }
         string output = "";
         string extension = Path.GetExtension(file.FileName).ToLower();
-        if (extension != ".png" || extension != ".jpg" || extension != ".jpeg")
+        if (extension != ".png" && extension != ".jpg" && extension != ".jpeg")
         {
             Console.WriteLine("Unsupported file format");
             return;
@@ -59,4 +59,3 @@ public class ImageDoc : IDoc
         trie.insert(output);
     }
 }
-
