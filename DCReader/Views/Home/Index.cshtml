@@ -1,45 +1,75 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<form style="display: flex;justify-content: center;"  asp-action="Index" method="post" enctype="multipart/form-data">
-    <div class="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700">
-        <input type="file" name="file" id="file" accept="video/*,audio/*" style="display: none;" onchange="updateFileName()" />
-        
-        <button type="button" onclick="document.getElementById('file').click();"
-            class="p-2 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600">
-            <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 12 20">
-                <path stroke="currentColor" stroke-linejoin="round" stroke-width="2"
-                    d="M1 6v8a5 5 0 1 0 10 0V4.5a3.5 3.5 0 1 0-7 0V13a2 2 0 0 0 4 0V6" />
-            </svg>
-            <span class="sr-only">Attach file</span>
-        </button>
+<form class="upload-form" asp-action="Index" method="post" enctype="multipart/form-data">
+      <style>
+    .chat-box {
+        display: flex;
+        align-items: center;
+        background-color: #2c2f3f;
+        border-radius: 8px;
+        padding: 8px;
+        width: 600px;
+    }
 
-        <!-- Display the selected file name here -->
-        <span id="file-name" class="ml-2 text-sm text-gray-700 dark:text-gray-300"></span>
+    .icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        cursor: pointer;
+        filter: brightness(0) invert(1);
+        /* Making icons white */
+    }
 
-        <textarea name="UserInput" id="chat" rows="1"
-            class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Your message..."></textarea>
+    .message-input {
+        flex-grow: 1;
+        background-color: #1e2130;
+        border: none;
+        padding: 10px;
+        color: white;
+        border-radius: 6px;
+        outline: none;
+        font-size: 16px;
+    }
 
-        <button type="submit"
-            class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
-            <svg class="w-5 h-5 rotate-90 rtl:-rotate-90" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor" viewBox="0 0 18 20">
-                <path
-                    d="m17.914 18.594-8-18a1 1 0 0 0-1.828 0l-8 18a1 1 0 0 0 1.157 1.376L8 18.281V9a1 1 0 0 1 2 0v9.281l6.758 1.689a1 1 0 0 0 1.156-1.376Z" />
-            </svg>
-            <span class="sr-only">Send message</span>
-        </button>
-    </div>
-     <select  name="FileType" style="margin-left: 50px;" id="file-type" onchange="updateFileAccept()"
-            class="p-2 text-gray-700 bg-white border border-gray-300 rounded-lg dark:bg-gray-800 dark:text-white dark:border-gray-600">
-            <option value="">Select Type</option>
-            <option value="text">Text</option>
-            <option value="audio">Audio</option>
-            <option value="video">Video</option>
-            <option value="image">Image</option>
-        </select>
-</form>
+    .send-button {
+        margin-left: 8px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #4a90e2;
+        font-size: 20px;
+    }
+
+    .send-button:hover {
+        color: #1a73e8;
+    }
+</style>
+<input type="file" name="file" id="file" style="visibility:hidden;">
+<div class="chat-box">
+    <svg onclick="uploadFile()" class="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-paperclip" viewBox="0 0 16 16">
+        <path
+            d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
+    </svg>
+    <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+        class="bi bi-file-earmark-code" viewBox="0 0 16 16">
+        <path
+            d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5z" />
+        <path
+            d="M8.646 6.646a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L10.293 9 8.646 7.354a.5.5 0 0 1 0-.708m-1.292 0a.5.5 0 0 0-.708 0l-2 2a.5.5 0 0 0 0 .708l2 2a.5.5 0 0 0 .708-.708L5.707 9l1.647-1.646a.5.5 0 0 0 0-.708" />
+    </svg>
+    <textarea type="text" name="UserInput" id="Chat" class="message-input" placeholder="Your message..."></textarea>
+    <button class="send-button">
+        <svg style="transform: rotate(45deg);" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+            <path
+                d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
+        </svg>
+    </button>
+</div>
+
+    </form>
 @{
 if(ViewData["IsError"]=="true"){
     <p style="color: red;" >@ViewData["Messeg"]</p>
@@ -61,3 +91,5 @@ if(ViewData["IsError"]=="true"){
         }
     }
 </script>
+
+

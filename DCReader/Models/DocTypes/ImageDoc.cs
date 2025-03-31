@@ -6,7 +6,7 @@ using Tesseract;
 
 public class ImageDoc : IDoc
 {
-  private Trie trie=new Trie();
+  private Trie trie;
   
     public List<Position> Search(string key)
     {

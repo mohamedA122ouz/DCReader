@@ -11,7 +11,7 @@ using System.Collections.Generic;
 public class VedioDoc : IDoc
 {
   private static readonly string modelPath = "vosk-model-small-en-us";
-  private Trie trie=new Trie();
+  private Trie trie;
  
 public void SetTrie(Trie trie)
     {

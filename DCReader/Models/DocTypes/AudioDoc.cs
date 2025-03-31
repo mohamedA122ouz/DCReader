@@ -12,7 +12,7 @@ public class AudioDoc : IDoc
 {
   private static readonly string modelPath = "vosk-model-small-en-us";
 
-  private Trie trie=new Trie();
+  private Trie trie;
 
 public void SetTrie(Trie trie)
     {

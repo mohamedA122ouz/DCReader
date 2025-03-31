@@ -21,37 +21,53 @@ public class HomeController : Controller
         
     }
     [HttpPost]
-    public IActionResult Index(IFormFile file,string FileType,string UserInput)
+    public IActionResult Index(IFormFile file,string UserInput)
     {
         if(file==null){
            ViewData["IsError"]="true";
            ViewData["Messeg"]="Cant Upload Empty Data"; 
            return View();
         }
-        Trie trie=new Trie();
-        if(FileType=="video"){
-            IDoc doc=new VedioDoc();
-            document.ChangeState(doc);
+        string Extension=Path.GetExtension(file.FileName).ToLower();
+        if(Extension==".mp3"||Extension=="wav"){
+          IDoc AudioDoc=new AudioDoc();
+          document.ChangeState(AudioDoc);
+          document.read(file);
+        } 
+        else if(Extension==".mp4"){
+          IDoc VedioDoc=new VedioDoc();
+          document.ChangeState(VedioDoc);
+          document.read(file);
+        }
+        else if(Extension==".text"||Extension==""){
+          IDoc TextDoc=new TextDoc();
+          document.ChangeState(TextDoc);
+          document.read(file);
+
+        }
+        else if(Extension==".jpg"||Extension==".png"||Extension==".jpeg"){
+            IDoc ImageDoc=new ImageDoc();
+            document.ChangeState(ImageDoc);
             document.read(file);
         }
-        else if(FileType=="audio"){
-            IDoc doc=new AudioDoc();
-            document.ChangeState(doc);
-            document.read(file);
+        else{ 
+           ViewData["IsError"]="true";
+           ViewData["Messeg"]="Not Supported  Type"; 
+           return View();
         }
-        else if(FileType=="text"){
-            IDoc doc=new TextDoc();
-            document.ChangeState(doc);
-            document.read(file);
+        List<string> lines=UserInput.Split("\n").ToList();
+        string Type;
+        foreach(string line in lines){
+          string str=line.Trim();
+          var ls=str.Split("-");
+          str=ls[0].Trim();
+          Type=ls[1].Trim();
         }
-        else if(FileType=="image"){
-            IDoc doc=new ImageDoc();
-            document.ChangeState(doc);
-            document.read(file);
-        }
-        var data=document.Search("dollars");
+
+        var data=document.Search("Test");
         ViewData["IsError"]="false";
         ViewData["Messeg"]=data; 
+
 
         return View();
         

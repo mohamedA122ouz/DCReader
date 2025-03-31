@@ -5,7 +5,7 @@ namespace DCReader.Models;
 
 public class TextDoc : IDoc
 {
-  private Trie trie=new Trie();
+  private Trie trie;
  
   public void SetTrie(Trie trie)
     {
