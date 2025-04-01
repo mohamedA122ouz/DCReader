@@ -89,7 +89,7 @@ public class Trie
             {
                 for (int ii = 0; ii < tempNode.RowIndex.Count; ii++)
                 {
-                    positions.Add(new() { Column = tempNode.columnIndex[ii] - key.Length + 2, Row = tempNode.RowIndex[ii] });
+                    positions.Add(new() { Column = tempNode.columnIndex[ii] - key.Length + 1, Row = tempNode.RowIndex[ii] });
                 }
             }
             i++;
