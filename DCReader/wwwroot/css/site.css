@@ -51,3 +51,8 @@ body {
 .send-button:hover {
   color: #1a73e8;
 }
+textarea {
+  width: 40vw;
+  max-height: 15vh;
+  height: 13vh;
+}
