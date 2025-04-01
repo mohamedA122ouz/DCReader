@@ -22,6 +22,7 @@
     }
 }
 <form class="upload-form" asp-action="Index" method="post" enctype="multipart/form-data">
+    <textarea type="text" id="hiddenInput" name="UserInput" style="display: none;" onchange="this.form.submit()"></textarea>
     <input type="file" onchange="updateFileName()" name="file" id="file" style="visibility:hidden;">
 
     <div class="chat-box">
@@ -30,14 +31,8 @@
             <path
                 d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z" />
         </svg>
-
-        <textarea type="text" name="UserInput" id="Chat" class="message-input" placeholder="Privacy Levels [c,cs,h,p] Ex:
-word1 -c
-word2 -cs
-word3 -h
-word4 -p
-        "></textarea>
-        <button class="send-button">
+        <div id="editableDiv" id="Chat" class="message-input editable" onkeydown="handleKeyDown(event)"></div>
+        <button class="send-button" type="button" onclick="processInput()">
             <svg style="transform: rotate(45deg);" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
                 <path

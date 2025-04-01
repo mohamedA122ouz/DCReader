@@ -51,8 +51,20 @@ body {
 .send-button:hover {
   color: #1a73e8;
 }
-textarea {
+#editableDiv {
   width: 40vw;
   max-height: 15vh;
-  height: 13vh;
+  /* height: 13vh; */
+  overflow: auto;
+}
+.editor{/*the input and select elements*/
+  background: transparent;
+  color: white;
+  font-size: larger;
+  outline: 0;
+  border: 0;
+}
+.editor>option{
+  color: white;
+  background-color: black;
 }

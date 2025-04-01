@@ -22,8 +22,6 @@
             &copy; 2025 - DCReader the image recognition and audio and video is based on ai so it is 99% accurate
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
     <script>
@@ -41,6 +39,66 @@
                 fileNameDisplay.textContent = "";
             }
         }
+        function handleKeyDown(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); // Prevent new div creation
+                createLine();
+            }
+        }
+
+        function createLine(defaultText = "") {
+            const editableDiv = document.getElementById("editableDiv");
+
+            const div = document.createElement("div");
+            div.classList.add("line");
+
+            const input = document.createElement("input");
+            input.type = "text";
+            input.placeholder = "Enter word...";
+            input.className = "editor";
+            input.value = defaultText;
+            div.appendChild(input);
+
+            const select = document.createElement("select");
+            ["critical", "high secrete", "contain senstive data", "private"].forEach(optionText => {
+                const option = document.createElement("option");
+                if (optionText === "contain senstive data")
+                    option.value = "cs";
+                else
+                    option.value = optionText[0]
+                option.textContent = optionText;
+                select.appendChild(option);
+            });
+            select.className = "editor";
+            div.appendChild(select);
+            editableDiv.appendChild(div);
+
+            input.focus(); // Focus new input field
+        }
+
+        function processInput() {
+            const lines = document.querySelectorAll(".line");
+            const change = document.querySelector("#hiddenInput");
+            let output = "";
+
+            lines.forEach(line => {
+                const input = line.querySelector("input");
+                const select = line.querySelector("select");
+                if (input.value.trim() !== "") {
+                    output += `${input.value} -${select.value}\n`;
+                }
+            });
+            console.log(output)
+            console.log(change);
+            change.value = output.trim();
+            if(change.value.length !== 0)
+                change.dispatchEvent(new Event('change'));
+        }
+
+        // Create the first default element when the page loads
+        window.onload = function () {
+            createLine("");
+        };
     </script>
 </body>
 
