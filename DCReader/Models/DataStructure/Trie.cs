@@ -20,7 +20,8 @@ public class Trie
         startNode = IntiateNode(startCharValue);
         lastNode = startNode;
     }
-    public void insert(string wholeString){
+    public void insert(string wholeString)
+    {
         int Row = 0;
         int Column = 0;
         int strCounter = 0;
@@ -61,7 +62,8 @@ public class Trie
         lastNode = current;
         return current;
     }
-    public bool contains(string key){
+    public bool contains(string key)
+    {
         Node tempNode = startNode;
         foreach (char c in key)
         {
@@ -76,26 +78,30 @@ public class Trie
     {
         List<Position> positions = new();
         Node tempNode = startNode;
-        int i = 0;
+        int i = 0;//char c counter
         foreach (char c in key)
         {
             Node nextTemp = tempNode.next.GetValueOrDefault(c);
             if (nextTemp.Value == '\0')
                 break;
             tempNode = nextTemp;
-            i++;
-            if(i == key.Length - 1){
-                for(int ii = 0;ii<tempNode.RowIndex.Count;ii++){
-                    positions.Add(new(){Column=tempNode.columnIndex[ii] - key.Length + 2,Row=tempNode.RowIndex[ii]});
+            if (i == key.Length - 1)
+            {
+                for (int ii = 0; ii < tempNode.RowIndex.Count; ii++)
+                {
+                    positions.Add(new() { Column = tempNode.columnIndex[ii] - key.Length + 2, Row = tempNode.RowIndex[ii] });
                 }
             }
+            i++;
         }
         return positions;
     }
-    public Dictionary<string,List<Position>> searchList(List<string> keys){
-        Dictionary<string,List<Position>> searchItems = new();
-        foreach(string key in keys){
-            searchItems.Add(key,search(key));
+    public Dictionary<string, List<Position>> searchList(List<string> keys)
+    {
+        Dictionary<string, List<Position>> searchItems = new();
+        foreach (string key in keys)
+        {
+            searchItems.Add(key, search(key));
         }
         return searchItems;
     }
