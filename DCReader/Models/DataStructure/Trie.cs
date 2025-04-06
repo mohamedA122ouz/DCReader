@@ -32,10 +32,14 @@ public class Trie
             {
                 Column = 0;
                 Row++;
+                lastNode = startNode;
                 continue;
             }
-            if (currentChar == '\r' || currentChar == '\t')
+            if (currentChar == '\r' || currentChar == '\t'){
+                lastNode = startNode;
+                Column++;
                 continue;
+            }
             insert(currentChar, new() { Row = Row, Column = Column++ });
         }
     }
@@ -101,7 +105,8 @@ public class Trie
         Dictionary<string, List<Position>> searchItems = new();
         foreach (string key in keys)
         {
-            searchItems.Add(key, search(key));
+            if(!searchItems.ContainsKey(key))
+                searchItems.Add(key, search(key));
         }
         return searchItems;
     }
