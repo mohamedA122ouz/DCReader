@@ -3,6 +3,8 @@
 ## Check If those things already installed and install what is missing
 
 First open Powershell
+
+in the windows search box write "widows powershell"
 ![alt text](image-6.png)
 
 1. check whether .Net installed
@@ -12,7 +14,7 @@ dotnet --version
 ```
 ![alt text](image.png)
 
-If the didn't return a number like Then [install .net: https://dotnet.microsoft.com/en-us/download/dotnet/8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
+If the command didn't return a number like in the image Then you must [install .net: https://dotnet.microsoft.com/en-us/download/dotnet/8.0](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
 
 2. Check whether winget
 
