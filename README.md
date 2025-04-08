@@ -2,6 +2,9 @@
 
 ## Check If those things already installed and install what is missing
 
+First open Powershell
+![alt text](image-6.png)
+
 1. check whether .Net installed
 
 ```powershell
