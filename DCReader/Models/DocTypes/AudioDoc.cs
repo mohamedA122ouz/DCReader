@@ -14,7 +14,7 @@ public class AudioDoc : IDoc
 
   private Trie trie;
 
-public void SetTrie(Trie trie)
+  public void SetTrie(Trie trie)
     {
         this.trie=trie;
     }
