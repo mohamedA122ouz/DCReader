@@ -1,3 +1,4 @@
 {
-    "dotnet.defaultSolution": "DCReader.sln"
+    "dotnetAcquisitionExtension.existingDotnetPath": [],
+    "omnisharp.useModernNet": false,
 }

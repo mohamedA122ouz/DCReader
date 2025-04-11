@@ -1,5 +1,5 @@
 namespace DCReader.Models;
-using DCReader.Models;
+
 
 public class Document{
   private IDoc Doc ;
@@ -25,4 +25,3 @@ public class Document{
     Doc=doc;
   }
 }
-

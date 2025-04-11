@@ -5,13 +5,13 @@ namespace DCReader.Models;
 
 public class TextDoc : IDoc
 {
-  private Trie trie;
+  protected Trie trie;
  
   public void SetTrie(Trie trie)
     {
         this.trie=trie;
     }
-  public void Read(IFormFile file)
+  virtual public void Read(IFormFile file)
   {
     Stream stream = file.OpenReadStream();
     StreamReader reader = new(stream);

@@ -38,7 +38,7 @@ public class HomeController : Controller
       return View();
     }
     string Extension = Path.GetExtension(file.FileName).ToLower();
-    if (Extension == ".mp3" || Extension == "wav")
+    if (Extension == ".mp3" || Extension == ".wav")
     {
       IDoc AudioDoc = new AudioDoc();
       document.ChangeState(AudioDoc);
@@ -50,12 +50,22 @@ public class HomeController : Controller
       document.ChangeState(VedioDoc);
       document.read(file);
     }
-    else if (Extension == ".txt" || Extension == "")
+    else if (Extension == ".txt" || Extension == "" || Extension == ".md")
     {
       IDoc TextDoc = new TextDoc();
       document.ChangeState(TextDoc);
       document.read(file);
 
+    }
+    else if(Extension.ToLower() == ".pdf") {
+      IDoc pdfDoc = new PDFDoc();
+      document.ChangeState(pdfDoc);
+      document.read(file);
+    }
+    else if(Extension.ToLower() == ".docx") {
+      IDoc docxDoc = new DocxDoc();
+      document.ChangeState(docxDoc);
+      document.read(file);
     }
     else if (Extension == ".jpg" || Extension == ".png" || Extension == ".jpeg")
     {
