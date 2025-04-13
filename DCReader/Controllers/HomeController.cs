@@ -109,7 +109,11 @@ public class HomeController : Controller
       try
       {
         entries.TryGetValue(key, out List<Position>? positions);
-        if (positions.Count <= 0) continue;
+        if (positions.Count <= 0)
+        {
+          ik++;
+          continue;
+        }
         message += $"The word `{key}` which has Privacy level {CLevel[Type[ik]]} occure at Postions <br>(Row,Column)<br>";
         foreach (Position p in positions)
         {

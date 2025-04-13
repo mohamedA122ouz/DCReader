@@ -18,7 +18,7 @@
 @{
     if (ViewData["output"] != null)
     {
-        <p style="color: @color">@Html.Raw(ViewData["output"])</p>
+        <p style="color: @color;overflow-y: auto;max-height: 40vh;">@Html.Raw(ViewData["output"])</p>
     }
 }
 <form class="upload-form" asp-action="Index" method="post" enctype="multipart/form-data">
