@@ -1,4 +1,4 @@
 {
-    "dotnetAcquisitionExtension.existingDotnetPath": [],
     "omnisharp.useModernNet": false,
+    "omnisharp.sdkPath": "",
 }
