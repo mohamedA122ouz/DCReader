@@ -12,11 +12,11 @@ public class VedioDoc : IDoc
 {
   private static readonly string modelPath = "vosk-model-small-en-us";
   private Trie trie;
- 
-public void SetTrie(Trie trie)
-    {
-        this.trie=trie;
-    }
+
+  public void SetTrie(Trie trie)
+  {
+    this.trie = trie;
+  }
   public void Read(IFormFile videoFile)
   {
     if (videoFile == null || videoFile.Length == 0)
@@ -59,13 +59,17 @@ public void SetTrie(Trie trie)
       RedirectStandardOutput = true,
       RedirectStandardError = true,
       UseShellExecute = false,
-      CreateNoWindow = true
+      CreateNoWindow = false
     };
 
     using (Process process = new Process { StartInfo = psi })
     {
       process.Start();
+      string stderr = process.StandardError.ReadToEnd();
+      string stdout = process.StandardOutput.ReadToEnd();
       process.WaitForExit();
+      Console.WriteLine("errors: "+stderr);
+      Console.WriteLine("output: "+stdout);
     }
 
     return audioOutput;
@@ -82,13 +86,17 @@ public void SetTrie(Trie trie)
       RedirectStandardOutput = true,
       RedirectStandardError = true,
       UseShellExecute = false,
-      CreateNoWindow = true
+      CreateNoWindow = false
     };
 
     using (Process process = new Process { StartInfo = psi })
     {
       process.Start();
+      string stderr = process.StandardError.ReadToEnd();
+      string stdout = process.StandardOutput.ReadToEnd();
       process.WaitForExit();
+      Console.WriteLine("errors: "+stderr);
+      Console.WriteLine("output: "+stdout);
     }
 
     return outputFilePath;
